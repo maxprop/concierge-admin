@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg" style="margin-bottom: 30px;">
+  <div class="container">
+    <a class="navbar-brand" *ngIf="auth.authenticated" routerLink="contacts"><img class="logo" src="https://www.insuranceza.org/images/companies/ooba-insurance-logo.jpg" /></a>
+  
+    <ul class="nav navbar-nav mr-auto" style="margin-left: 45px;">
+      <li class="nav-item" routerLinkActive="active" *ngIf="auth.authenticated">
+        <a class="nav-link" routerLink="contacts">Contacts & Leads</a>
+      </li> 
+      
+      <li class="nav-item" routerLinkActive="user" *ngIf="auth.authenticated">
+        <a class="nav-link" routerLink="user">Users</a>
+      </li>
+       
+      <li class="nav-item" routerLinkActive="admin" *ngIf="auth.is.administrator">
+        <a class="nav-link" routerLink="admin">Admin's</a>
+      </li>
+       <!--
+      <li class="nav-item" routerLinkActive="event" *ngIf="auth.authenticated">
+        <a class="nav-link" routerLink="event"><i class="fa fa-calendar"></i> Events</a>
+      </li>
+      <li class="nav-item" routerLinkActive="contacts" *ngIf="auth.authenticated">
+        <a class="nav-link" routerLink="contacts"><i class="fa fa-calendar"></i> Contacts</a>
+      </li>
+        -->
+    </ul>
+  
+    <ul class="nav navbar-nav ml-auto">
+  
+      <li class="nav-item dropdown" *ngIf="auth.authenticated">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Scrape Libraries
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" routerLink="listing">Listings</a>
+          <a class="dropdown-item" routerLink="agent">Agents</a>
+          <a class="dropdown-item" routerLink="office">Offices</a>
+         
+        </div>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="!auth.authenticated">
+        <a class="nav-link" routerLink="auth/login">Login</a>
+      </li>
+      <li class="nav-item" *ngIf="auth.authenticated">
+        <a class="nav-link Logout-link" routerLink="auth/login" (click)="auth.logout();" ><span class="glyphicon glyphicon-off"></span> Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

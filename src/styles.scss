@@ -1,0 +1,178 @@
+$white:    #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #868e96;
+$gray-700: #495057;
+$gray-800: #373a3c;
+$gray-900: #212529;
+$black:    #000;
+
+$blue:    #2780E3;
+$indigo:  #6610f2;
+$purple:  #613d7c;
+$pink:    #e83e8c;
+$red:     #FF0039;
+$orange:  #F2661F;
+$yellow:  #BED32B;
+$green:   #3FB618;
+$teal:    #20c997;
+$cyan:    #9954BB;
+$lightblue: lighten($blue, 20%);
+
+$primary:       $blue;
+$secondary:     $orange;
+$success:       $green;
+$info:          $lightblue;
+$warning:       $yellow;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-800;
+
+@import "~bootswatch/dist/cosmo/_variables.scss";
+@import "~bootstrap/scss/bootstrap.scss";
+@import "~bootswatch/dist/cosmo/_bootswatch.scss";
+$fa-font-path: '../node_modules/font-awesome/fonts';
+@import '~font-awesome/scss/font-awesome';
+
+body{
+  font-size: 1.1rem;
+}
+
+.logo {
+  height: 1.8em;
+}
+
+.text-blue {
+  color: #127ABF;
+}
+
+.text-green {
+  color: #449414;
+}
+
+.hero-image {
+  display: inline;
+  height: 2em;
+}
+
+
+.card-header:first-child{
+  background-color: #68bd45;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
+  color: #68bd45;
+}
+
+.nav-tabs .nav-link {
+  color: #ffffff;
+}
+
+h3, .h3 {
+  font-size: 1.4rem;
+}
+
+.btn-primary {
+  background-color: #68bd45;
+  border-color: #68bd45;
+  border-radius: 10px;
+}
+
+.login-button {
+  margin-bottom: 80px;
+}
+
+.card-title{
+  color: #ffffff;
+  font-weight: bold;
+}
+
+
+.nav-tabs .nav-link {
+  border: 1px solid #e9ecef;
+  color: #000000;
+}
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link{
+  font-weight: bold;
+}
+
+thead{background-color: #68bd45;text-align: center;color: #fff;}
+
+.nav-link{
+  color: #000000;
+}
+
+.table-hover tbody tr:hover {
+    color: #000000;
+    background-color: rgba(183, 210, 53, 0.095);
+
+}
+
+.btn-primary{
+  color: #fff;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700;
+  border-radius: 40px;
+  -webkit-box-shadow: 0px 11px 30px 0px rgba(56,46,46,0.3);
+  box-shadow: 0px 11px 30px 0px rgba(56,46,46,0.3);
+  padding: 15px 35px;
+  text-align: center;
+  border-width: 2px;
+  -webkit-transition: all 0.3s ease 0s;
+  -o-transition: all 0.3s ease 0s;
+  transition: all 0.3s ease 0s;
+  text-decoration: none;
+  background-color: #6abd46 !important;
+  border-color: #6abd46 !important;
+}
+
+thead{
+  background-color:#6abd46 !important;
+  color: #FFFFFF !important;
+  text-align: center;
+  font-weight: 900 !important;
+  font-size: 16px !important;
+}
+
+table.table a{
+  font-weight: 700;
+}
+
+.bg-default{
+  background-color: #6abd46 !important;
+}
+
+.pagination .page-item.active .page-link{
+  background-color: #575756;
+}
+
+.pagination .page-item.active .page-link:hover {
+  background-color: #6abd46;
+}
+
+table.table thead th {
+  border-top: none;
+  font-weight: 900 !important;
+  font-size: 1.05rem;
+}
+
+table td{
+font-size: 1rem;
+}
+
+.btn-secondary {
+  background-color: #575756 !important;
+  border-radius: 25px;
+  border: none !important;
+}
+
+.formio-drag-button {
+  background-color: #575756 !important;
+  color: #ffffff !important;
+}
