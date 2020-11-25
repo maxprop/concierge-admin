@@ -24,9 +24,14 @@ export class IndexComponent implements OnInit {
   public res: string[] = [];
 
   columnDefs = [
-    { headerName: 'Email', width: 120 ,field: 'email', filter: 'agTextColumnFilter', },
-    { headerName: 'Name', width: 120 ,field: 'fullName', filter: 'agTextColumnFilter', },
-
+    { headerName: 'Name', width: 220 ,field: 'fullName', filter: 'agTextColumnFilter', sortable: true},
+    { headerName: 'Status', width: 120 ,field: 'contactStatus', filter: 'agTextColumnFilter', sortable: true},
+    { headerName: 'Assigned To', width: 120 ,field: 'assignedTo', filter: 'agTextColumnFilter', sortable: true},
+    { headerName: 'Email', width: 220 ,field: 'email', filter: 'agTextColumnFilter', sortable: true},
+    { headerName: 'Mobile', width: 120 ,field: 'mobile', filter: 'agTextColumnFilter', sortable: true},
+    { headerName: 'Home Loan', width: 120, field: 'homeLoanQualificationAmount',filter: 'agNumberColumnFilter', sortable: true},
+    { headerName: 'Updated', width: 120 ,field: 'lastUpdated', filter: 'agTextColumnFilter', sortable: true },
+    { headerName: 'Created', width: 120 ,field: 'createdTime', filter: 'agTextColumnFilter', sortable: true },
   ];
 
 
@@ -42,7 +47,7 @@ export class IndexComponent implements OnInit {
     pagination: true,
 
     // sets 10 rows per page (default is 100)
-    paginationPageSize: 10,
+    paginationPageSize: 20,
 
     // other options
 }
@@ -63,8 +68,14 @@ onRowClicked(event) {
       .subscribe((res) => {
         res.forEach(element => {
           return this.data.push({
-            "email": element.data.email,
             "fullName": element.data.fullName,
+            "contactStatus": element.data.contactStatus,
+            "homeLoanQualificationAmount": element.data.homeLoanQualificationAmount,
+            "assignedTo": element.data.assignedTo?element.data.assignedTo.data.firstName+" "+element.data.assignedTo.data.lastName:'',
+            "email": element.data.email,
+            "mobile": element.data.mobile,
+            "lastUpdated": element.data.lastUpdated,
+            "createdTime": element.data.createdTime,
             "id": element._id
           });
         });
