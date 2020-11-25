@@ -12,6 +12,8 @@ import {
   FormioResourceEditComponent,
   FormioResourceDeleteComponent
 } from 'angular-formio/resource';
+import { HttpClientModule } from '@angular/common/http';
+import { AgGridModule } from 'ag-grid-angular';
 import { ResourceComponent } from './resource/resource.component';
 import { IndexComponent } from './index/index.component';
 import { FormioGrid } from 'angular-formio/grid';
@@ -20,6 +22,8 @@ import { FormioGrid } from 'angular-formio/grid';
   imports: [
     CommonModule,
     FormioModule,
+    HttpClientModule,
+    AgGridModule.withComponents([]),
     FormioGrid,
     FormioResource,
     RouterModule.forChild([

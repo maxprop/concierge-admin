@@ -36,7 +36,17 @@ $dark:          $gray-800;
 @import "~bootswatch/dist/cosmo/_bootswatch.scss";
 $fa-font-path: '../node_modules/font-awesome/fonts';
 @import '~font-awesome/scss/font-awesome';
+// AG- grid
+@import "~ag-grid-community/dist/styles/ag-grid.css";
+@import "~ag-grid-community/dist/styles/ag-theme-balham.css";
 
+.ag-header.ag-focus-managed.ag-pivot-off {
+    background: #000;
+}
+
+.ag-header.ag-focus-managed.ag-pivot-off span {
+    color: #fff;
+}
 body{
   font-size: 1.1rem;
 }
