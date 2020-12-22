@@ -25,15 +25,28 @@ export class IndexComponent implements OnInit {
 
   columnDefs = [
     { headerName: 'Name', width: 220 ,field: 'fullName', filter: 'agTextColumnFilter', sortable: true},
-    { headerName: 'Status', width: 120 ,field: 'contactStatus', filter: 'agTextColumnFilter', sortable: true},
-    { headerName: 'Assigned To', width: 120 ,field: 'assignedTo', filter: 'agTextColumnFilter', sortable: true},
-    { headerName: 'Email', width: 220 ,field: 'email', filter: 'agTextColumnFilter', sortable: true},
+    { headerName: 'Status', width: 160 ,field: 'contactStatus', filter: 'agTextColumnFilter', sortable: true},
+  { headerName: 'Assigned To', width: 160 ,field: 'assignedTo', filter: 'agTextColumnFilter', sortable: true},
+    { headerName: 'Email', width: 200 ,field: 'email', filter: 'agTextColumnFilter', sortable: true},
     { headerName: 'Mobile', width: 120 ,field: 'mobile', filter: 'agTextColumnFilter', sortable: true},
-    { headerName: 'Home Loan', width: 120, field: 'homeLoanQualificationAmount',filter: 'agNumberColumnFilter', sortable: true},
-    { headerName: 'Updated', width: 120 ,field: 'lastUpdated', filter: 'agTextColumnFilter', sortable: true },
-    { headerName: 'Created', width: 120 ,field: 'createdTime', filter: 'agTextColumnFilter', sortable: true },
-  ];
+   //  { headerName: 'Primary Suburb', width: 240, field: 'primarySuburb', filter: 'agTextColumnFilter', sortable: true },
+   { headerName: 'Updated', width: 120 ,field: 'lastUpdated', filter: 'agDateColumnFilter', sortable: true,cellRenderer: (data) => {
+    return data.value ? (new Date(data.value)).toLocaleDateString() : '';
+} },
+  { headerName: 'Follow Up Date', width: 150 ,field: 'followUpDate', filter: 'agDateColumnFilter', cellRenderer: (data) => {
+    return data.value ? (new Date(data.value)).toLocaleDateString() : '';
+}, sortable: true },
+  { headerName: 'Created', width: 120 ,field: 'createdTime', filter: 'agDateColumnFilter', sortable: true,cellRenderer: (data) => {
+    return data.value ? (new Date(data.value)).toLocaleDateString() : '';
+}},
+{ headerName: 'Existing Property Sale	', width: 120, field: 'existingPropertySale	', filter: 'agTextColumnFilter', sortable: true },
 
+    { headerName: 'Recommend Agency', width: 150, field: 'recommendAgency', filter: 'agTextColumnFilter', sortable: true },
+    { headerName: 'House Currently On Market', width: 160, field: 'houseCurrentlyOnMarket', filter: 'agTextColumnFilter', sortable: true },
+
+    { headerName: 'Home Loan Qualification', width: 160, field: 'homeLoanQualificationAmount',filter: 'agNumberColumnFilter', },
+  ];
+	
 
   rowData: any;
   
@@ -71,10 +84,15 @@ onRowClicked(event) {
             "fullName": element.data.fullName,
             "contactStatus": element.data.contactStatus,
             "homeLoanQualificationAmount": element.data.homeLoanQualificationAmount,
-            "assignedTo": element.data.assignedTo?element.data.assignedTo.data.firstName+" "+element.data.assignedTo.data.lastName:'',
+         "assignedTo": element.data.assignedTo?element.data.assignedTo.data.firstName+" "+element.data.assignedTo.data.lastName:'',
             "email": element.data.email,
             "mobile": element.data.mobile,
             "lastUpdated": element.data.lastUpdated,
+            "followUpDate": element.data.followUpDate,
+            "recommendAgency": element.data.recommendAgency,
+            "existingPropertySale	": element.data.existingPropertySale,
+            "houseCurrentlyOnMarket": element.data.houseCurrentlyOnMarket,
+        //    "primarySuburb": element.data.primarySuburb ? element.data.suburb:'',
             "createdTime": element.data.createdTime,
             "id": element._id
           });

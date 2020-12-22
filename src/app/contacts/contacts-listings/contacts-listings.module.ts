@@ -22,8 +22,8 @@ import {
     {
       provide: FormioResourceConfig,
       useValue: {
-        name: 'contactProperties',
-        form: 'contactproperties',
+        name: 'contactPropertiesV4',
+        form: 'contactpropertiesv4',
         parents: [
           'contact'
         ]
