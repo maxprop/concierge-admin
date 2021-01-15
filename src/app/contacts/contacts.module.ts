@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormioModule } from 'angular-formio';
+import { DatePipe } from '@angular/common';
 import {
   FormioResource,
   FormioResourceConfig,
@@ -71,6 +72,7 @@ import { FormioGrid } from 'angular-formio/grid';
   declarations: [ResourceComponent, IndexComponent],
   providers: [
     FormioResourceService,
+    DatePipe,
     {
       provide: FormioResourceConfig,
       useValue: {
