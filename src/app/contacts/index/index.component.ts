@@ -91,8 +91,6 @@ export class IndexComponent implements OnInit {
       .get<any[]>('https://ooba-digitaloffice.form.io/contact/submission?sort=-created&skip=0&limit=1000', { headers })
       .subscribe((res) => {
         res.forEach(element => {
-          console.log(this.datepipe.transform(element.data.createdTime, 'short')); //output : 2018-02-13
-
           return this.data.push({
             "fullName": element.data.fullName,
             "contactStatus": element.data.contactStatus,
