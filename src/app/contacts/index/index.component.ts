@@ -60,6 +60,7 @@ export class IndexComponent implements OnInit {
 
 
   rowData: any;
+  public a = 'all';
 
 
   constructor(private http: HttpClient, private router: Router, public datepipe: DatePipe) {
@@ -79,34 +80,59 @@ export class IndexComponent implements OnInit {
   onRowClicked(event) {
     this.router.navigate([`/contacts/${event.data.id}/view`]);
   }
-
   newListing() {
     this.router.navigate([`/contacts/new`]);
   }
   ngOnInit() {
+    this.gridData(this.a);
+  }
+  gridData(a) {
     let headers = new HttpHeaders().set('x-token', 'seAu4yf9Dhj0DQWKNemssni9pxDYMP')
       .set('content-type', 'application/json');
 
     this.http
       .get<any[]>('https://ooba-digitaloffice.form.io/contact/submission?sort=-created&skip=0&limit=1000', { headers })
       .subscribe((res) => {
+        this.data = [];
         res.forEach(element => {
-          return this.data.push({
-            "fullName": element.data.fullName,
-            "contactStatus": element.data.contactStatus,
-            "homeLoanQualificationAmount": element.data.homeLoanQualificationAmount,
-            "assignedTo": element.data.assignedTo ? element.data.assignedTo.data.firstName + " " + element.data.assignedTo.data.lastName : '',
-            "email": element.data.email,
-            "mobile": element.data.mobile,
-            "lastUpdated": element.data.lastUpdated?this.datepipe.transform(element.data.lastUpdated, 'd/M/yy, h:mm a'):'',
-            "followUpDate": element.data.followUpDate?this.datepipe.transform(element.data.followUpDate, 'd/M/yy, h:mm a'):'',
-            "recommendAgency": element.data.recommendAgency,
-            "existingPropertySale	": element.data.existingPropertySale,
-            "houseCurrentlyOnMarket": element.data.houseCurrentlyOnMarket,
-            //    "primarySuburb": element.data.primarySuburb ? element.data.suburb:'',
-            "createdTime": element.data.createdTime?this.datepipe.transform(element.data.createdTime, 'd/M/yy, h:mm a'):'',
-            "id": element._id
-          });
+          if (a == 'all' && element.data.contactStatus !== 'new') {
+            return this.data.push({
+              "fullName": element.data.fullName,
+              "contactStatus": element.data.contactStatus,
+              "homeLoanQualificationAmount": element.data.homeLoanQualificationAmount,
+              "assignedTo": element.data.assignedTo ? element.data.assignedTo.data.firstName + " " + element.data.assignedTo.data.lastName : '',
+              "email": element.data.email,
+              "mobile": element.data.mobile,
+              "lastUpdated": element.data.lastUpdated ? this.datepipe.transform(element.data.lastUpdated, 'd/M/yy, h:mm a') : '',
+              "followUpDate": element.data.followUpDate ? this.datepipe.transform(element.data.followUpDate, 'd/M/yy, h:mm a') : '',
+              "recommendAgency": element.data.recommendAgency,
+              "existingPropertySale	": element.data.existingPropertySale,
+              "houseCurrentlyOnMarket": element.data.houseCurrentlyOnMarket,
+              //    "primarySuburb": element.data.primarySuburb ? element.data.suburb:'',
+              "createdTime": element.data.createdTime ? this.datepipe.transform(element.data.createdTime, 'd/M/yy, h:mm a') : '',
+              "id": element._id
+            });
+          }
+
+          if (a == 'new' && element.data.contactStatus == 'new') {
+            return this.data.push({
+              "fullName": element.data.fullName,
+              "contactStatus": element.data.contactStatus,
+              "homeLoanQualificationAmount": element.data.homeLoanQualificationAmount,
+              "assignedTo": element.data.assignedTo ? element.data.assignedTo.data.firstName + " " + element.data.assignedTo.data.lastName : '',
+              "email": element.data.email,
+              "mobile": element.data.mobile,
+              "lastUpdated": element.data.lastUpdated ? this.datepipe.transform(element.data.lastUpdated, 'd/M/yy, h:mm a') : '',
+              "followUpDate": element.data.followUpDate ? this.datepipe.transform(element.data.followUpDate, 'd/M/yy, h:mm a') : '',
+              "recommendAgency": element.data.recommendAgency,
+              "existingPropertySale	": element.data.existingPropertySale,
+              "houseCurrentlyOnMarket": element.data.houseCurrentlyOnMarket,
+              //    "primarySuburb": element.data.primarySuburb ? element.data.suburb:'',
+              "createdTime": element.data.createdTime ? this.datepipe.transform(element.data.createdTime, 'd/M/yy, h:mm a') : '',
+              "id": element._id
+            });
+          }
+
         });
         this.rowData = this.data;
       })
