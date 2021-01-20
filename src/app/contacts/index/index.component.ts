@@ -55,7 +55,7 @@ export class IndexComponent implements OnInit {
     { headerName: 'Recommend Agency', width: 150, field: 'recommendAgency', filter: 'agTextColumnFilter', sortable: true },
     { headerName: 'House Currently On Market', width: 160, field: 'houseCurrentlyOnMarket', filter: 'agTextColumnFilter', sortable: true },
 
-    { headerName: 'Home Loan Qualification', width: 160, field: 'homeLoanQualificationAmount', filter: 'agNumberColumnFilter', },
+    { headerName: 'Home Loan Qualification', width: 160, field: 'homeLoanQualificationAmount', filter: 'agNumberColumnFilter', sortable: true},
   ];
 
 
