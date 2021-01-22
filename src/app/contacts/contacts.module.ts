@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormioModule } from 'angular-formio';
+import { DatePipe } from '@angular/common';
 import {
   FormioResource,
   FormioResourceConfig,
@@ -12,6 +13,8 @@ import {
   FormioResourceEditComponent,
   FormioResourceDeleteComponent
 } from 'angular-formio/resource';
+import { HttpClientModule } from '@angular/common/http';
+import { AgGridModule } from 'ag-grid-angular';
 import { ResourceComponent } from './resource/resource.component';
 import { IndexComponent } from './index/index.component';
 import { FormioGrid } from 'angular-formio/grid';
@@ -20,6 +23,8 @@ import { FormioGrid } from 'angular-formio/grid';
   imports: [
     CommonModule,
     FormioModule,
+    HttpClientModule,
+    AgGridModule.withComponents([]),
     FormioGrid,
     FormioResource,
     RouterModule.forChild([
@@ -67,6 +72,7 @@ import { FormioGrid } from 'angular-formio/grid';
   declarations: [ResourceComponent, IndexComponent],
   providers: [
     FormioResourceService,
+    DatePipe,
     {
       provide: FormioResourceConfig,
       useValue: {

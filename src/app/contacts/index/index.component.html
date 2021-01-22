@@ -1,8 +1,25 @@
-<div class="row">
-  <div class="col-12">
-      <formio src="https://ooba-digitaloffice.form.io/contactsearch" (submit)="onSubmit($event)"></formio>
-  </div>
-</div>
-<formio-grid src="https://ooba-digitaloffice.form.io/contact" [query]="{sort: '-created'}" (rowSelect)="onSelect($event)" [createText]="'Create New Contact'"
-  (createItem)="onCreateItem()">
-</formio-grid>
+
+<ul _ngcontent-ejg-c4="" class="nav nav-tabs resource-list">
+
+    <li class="nav-item"><a _ngcontent-ejg-c4="" (click)='gridData("all")' class="nav-link" routerlink="user-brand"
+        routerlinkactive="active" ng-reflect-router-link="user-brand">Opportunity</a></li>
+    <li class="nav-item"><a _ngcontent-ejg-c4="" class="nav-link" routerlink="edit" routerlinkactive="active"
+        ng-reflect-router-link="edit" (click)='gridData("new")'>New</a></li>
+  </ul>
+  <br>
+<ag-grid-angular
+    #myGrid
+    style="height: 640px;"
+    class="ag-theme-balham"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [gridOptions]="gridOptions"
+    [pagination]=true
+    [paginationPageSize]="20"
+    (rowClicked)="onRowClicked($event)"
+>
+</ag-grid-angular>
+
+<button class="btn btn-primary btn-sm pull-right float-right" style="margin-top:20px;" (click) = "newListing()"><i class="glyphicon glyphicon-plus fa fa-plus"></i> New Contact</button>
+
+
