@@ -5,4 +5,8 @@ import { FormioResourceComponent } from 'angular-formio/resource';
   templateUrl: './resource.component.html',
   styleUrls: ['./resource.component.scss']
 })
-export class ResourceComponent extends FormioResourceComponent implements OnInit {}
+export class ResourceComponent extends FormioResourceComponent implements OnInit {
+  ngOnInit(){
+    
+  }
+}
