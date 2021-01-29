@@ -36,5 +36,19 @@
   <app-root></app-root>
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script type="text/javascript" src="runtime.a43845d3cadb7a5af148.js"></script><script type="text/javascript" src="polyfills.23ddd2e5829f391d39ae.js"></script><script type="text/javascript" src="main.94c2c00aad403fc4d56c.js"></script></body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script>
+ $(document).on('click','li',function(e){
+var a = $(this).parent().parent();
+var childButton = $(this).find('i').hasClass('fa-chevron-left');
+
+if('ng-component' === a[0].nodeName.toLowerCase() && childButton  ){
+  location.reload(true);
+
+}
+     
+});
+</script>
+<script type="text/javascript" src="runtime.1ef606c1b4cbb4a9c774.js"></script><script type="text/javascript" src="polyfills.23ddd2e5829f391d39ae.js"></script><script type="text/javascript" src="main.cb89e25bc06949e94e52.js"></script></body>
 </html>

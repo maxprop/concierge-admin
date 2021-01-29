@@ -36,7 +36,7 @@
     "formiojs": "^4.8.0-rc.12",
     "lodash": "^4.17.15",
     "ng-formio-grid": "^1.4.2",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.14.1",
     "rxjs": "^6.5.4",
     "zone.js": "^0.10.2"
   },
