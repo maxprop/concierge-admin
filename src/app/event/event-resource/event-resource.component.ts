@@ -6,4 +6,4 @@ import { FormioResourceComponent } from 'angular-formio/resource';
   templateUrl: './event-resource.component.html',
   styleUrls: ['./event-resource.component.scss']
 })
-export class EventResourceComponent extends FormioResourceComponent implements OnInit {}
+export class EventResourceComponent extends FormioResourceComponent{}
